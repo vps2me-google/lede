@@ -106,9 +106,11 @@ jobs:
           EOF
 
           # 固件压缩:
-          # cat >> .config <<EOF
-          # CONFIG_TARGET_IMAGES_GZIP=y
-          # EOF
+          cat >> .config <<EOF
+          CONFIG_TARGET_ROOTFS_EXT4FS=y
+          CONFIG_TARGET_IMAGES_GZIP=y
+          CONFIG_TARGET_ROOTFS_PARTSIZE=800
+          EOF
 
           # 编译UEFI固件:
           cat >> .config <<EOF
@@ -142,7 +144,7 @@ jobs:
 
           # 常用LuCI插件选择:
           # cat >> .config <<EOF
-          CONFIG_PACKAGE_luci-app-adbyby-plus=y
+          # CONFIG_PACKAGE_luci-app-adbyby-plus=y
           # CONFIG_PACKAGE_luci-app-aria2=y
           # CONFIG_PACKAGE_luci-app-baidupcs-web=y
           # CONFIG_PACKAGE_luci-app-docker=y
